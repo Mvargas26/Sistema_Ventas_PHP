@@ -39,7 +39,19 @@
                         </div>
                     </div>
                 </main>
-            </div>            
+            </div> 
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Website <?php echo date("M-Y")?></div>
+                            <div>
+                                <a href="http://vargasportafolio.tritechno.net/#portfolio">Visita mi pagina Web</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>           
         </div>
         <script src="<?php echo BASE_URL;?>Assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
