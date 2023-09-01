@@ -1,0 +1,11 @@
+Options All -Indexes
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# linea 1- niega el acceso a las carpetas del proyecto
+# linea 2- activa motor de redirecciones
+# linea 3- verifica si un directorio es valido
+# linea 4- verifica si un archivo es valido
+# linea 5- almacena lo que tiene la url despues de la raiz

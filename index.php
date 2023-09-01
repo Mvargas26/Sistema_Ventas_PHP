@@ -1,0 +1,44 @@
+    <?php
+    // *** llamamos el config ***
+    require_once 'Config/Config.php';
+    
+    $ruta = !empty($_GET['url']) ? $_GET['url'] : "Home/index";
+    $array = explode("/",$ruta); //hace como un .split
+    //print_r($array);
+
+    $controller = ucfirst($array[0]);// metodo ucfirst pasa la primer letra a mayuscula
+    $metodo = "index";
+    $parametro = "";
+
+    if (!empty($array[1])) { //si el metodo es diferente de vacio se guarda
+        if ($array[1] != "") {
+            $metodo = $array[1];
+        }
+    }
+
+    if (!empty($array[2])) { //captura el parametro
+        if ($array[2] != "") {
+            for ($i = 2; $i < count($array); $i++) {
+                $parametro .= $array[$i] . ",";
+            }
+            $parametro = trim($parametro, ",");
+        }
+    }
+    // echo $controller;
+    // echo $metodo;
+    // echo $parametro;
+    require_once 'Config/App/Autoload.php'; //llamamos el autoload de app
+    $dirControllers = "Controllers/" . $controller . ".php";
+
+    if (file_exists($dirControllers)) {
+        require_once $dirControllers;
+        $controller = new $controller();
+        if (method_exists($controller, $metodo)) {
+            $controller->$metodo($parametro);
+        } else {
+            echo 'No existe el metodo';
+        }
+    } else {
+        echo 'No existe el controlador';
+    }
+    ?>
