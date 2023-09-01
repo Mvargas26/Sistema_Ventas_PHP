@@ -54,6 +54,6 @@
             </div>           
         </div>
         <script src="<?php echo BASE_URL;?>Assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="<?php echo BASE_URL;?>Assets/js/scripts.js"></script>
     </body>
 </html>
